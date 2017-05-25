@@ -1,0 +1,35 @@
+buildscript {
+	repositories { 
+		mavenCentral()
+	} 
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE") 
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse' 
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+apply plugin: 'war'
+
+war {
+    baseName = 'root'
+    version =  ''
+}
+
+repositories { 
+	mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies { 
+	compile("org.springframework.boot:spring-boot-starter-web") 
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+	compile group: 'dom4j', name: 'dom4j', version: '1.6.1'
+	compile group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.9'
+	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+}
+
